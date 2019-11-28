@@ -32,7 +32,7 @@ def booksFunction() :
     if request.method == 'GET' :
         result = showBooks()
         if result :
-            return jsonify(message="Livros que estao no sistema"), 201
+            return jsonify(message="A lista de livros"), 201
         else :
             return jsonify(message='Comando não executado'), 401
 
@@ -43,7 +43,7 @@ def booksFunction() :
         controle = request.args.get('controle', '')
         result = createBook(titulo, autor, edicao, controle)
         if result :
-            return jsonify(message="Livro criado" ), 201
+            return jsonify(message="Cadastrar livros" ), 201
         else :
             return jsonify(message='Comando não executado'), 401
 
@@ -54,7 +54,7 @@ def bookFunctionId() :
         numero = request.args.get('numero', '')
         result = bookStatus(numero)
         if result :
-            return jsonify(message="Status do livro" ), 200
+            return jsonify(message="Se o livro esta na bibioteca ou não" ), 200
         else :
             return jsonify(message='Comando não executado'), 401
 
@@ -65,7 +65,7 @@ def bookFunctionId() :
         edicao = request.args.get('edicao', '')
         result = updateBook(numero, titulo, autor, edicao)
         if result :
-            return jsonify(message="Livro atualizado" ), 200
+            return jsonify(message="Atualizar as informações do livro" ), 200
         else :
             return jsonify(message='Comando não executado'), 401
 
@@ -74,7 +74,7 @@ def bookFunctionId() :
         deleteBook(numero)
         result = showBooks()
         if result :
-            return jsonify(message="Livro deletado" ), 200
+            return jsonify(message="Apagar o livro" ), 200
         else :
             return jsonify(message='Comando não executado'), 401
 
